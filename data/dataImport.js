@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const fs = require("fs");
-const userModel = require("./../models/userModel");
+const category = require("./../models/categoryModel");
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
@@ -30,12 +30,12 @@ const addData = async () => {
 };
 const deleteData = async () => {
   try {
-    await userModel.deleteMany();
+    await category.deleteMany();
     console.log("Top toza");
     process.exit(0);
   } catch (err) {
     console.log("Kir");
   }
 };
-addData();
-// deleteData();
+// addData();
+deleteData();
