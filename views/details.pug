@@ -1,0 +1,211 @@
+extends base
+
+block content
+  .container-fluid
+    .row.px-xl-5
+      .col-12
+        nav.breadcrumb.bg-light.mb-30
+          a.breadcrumb-item.text-dark(href='/') Home
+          a.breadcrumb-item.text-dark(href='#') Shop
+          span.breadcrumb-item.active Shop Detail
+  // Shop Detail Start
+  .container-fluid.pb-5
+    .row.px-xl-5
+      .col-lg-5.mb-30
+        #product-carousel.carousel.slide(data-ride='carousel')
+          .carousel-inner.bg-light
+            .carousel-item.active
+              img.w-100.h-100(src=`${product.image[0]}` alt='Image')
+            each photo in product.image.splice(1)
+              .carousel-item
+                img.w-100.h-100(src=`${photo}` alt='Image')
+          a.carousel-control-prev(href='#product-carousel' data-slide='prev')
+            i.fa.fa-2x.fa-angle-left.text-dark
+          a.carousel-control-next(href='#product-carousel' data-slide='next')
+            i.fa.fa-2x.fa-angle-right.text-dark
+      .col-lg-7.h-auto.mb-30
+        .h-100.bg-light.p-30
+          h3=product.name 
+          .d-flex.mb-3
+            .text-primary.mr-2
+              small.fas.fa-star
+              small.fas.fa-star
+              small.fas.fa-star
+              small.fas.fa-star-half-alt
+              small.far.fa-star
+            small.pt-1=` (${product.reviews.length} Reviews)`
+          h3.font-weight-semi-bold.mb-4=`$${product.price}` 
+          p.mb-4=product.description
+          .d-flex.mb-3
+            strong.text-dark.mr-3 Sizes:
+            form
+              each size in product.sizes
+                .custom-control.custom-radio.custom-control-inline
+                  input.custom-control-input(type='radio' name='size' id=`size-${product.sizes.indexOf(size)+1}}`)
+                  label.custom-control-label(for=`size-${product.sizes.indexOf(size)+1}}`)=size
+          .d-flex.mb-4
+            strong.text-dark.mr-3 Colors:
+            form
+              each color in product.colors
+                .custom-control.custom-radio.custom-control-inline
+                  input.custom-control-input(type='radio' name='color' id=`color-${product.colors.indexOf(color)+1}`)
+                  label.custom-control-label(for=`color-${product.colors.indexOf(color)+1}`)=color
+          .d-flex.align-items-center.mb-4.pt-2
+            .input-group.quantity.mr-3(style='width: 130px')
+              .input-group-btn
+                button.btn.btn-primary.btn-minus
+                  i.fa.fa-minus
+              input.form-control.bg-secondary.border-0.text-center(type='text' value='1')
+              .input-group-btn
+                button.btn.btn-primary.btn-plus
+                  i.fa.fa-plus
+            button.btn.btn-primary.px-3
+              i.fa.fa-shopping-cart.mr-1
+              |  Add To Cart
+          .d-flex.pt-2
+            strong.text-dark.mr-2 Share on:
+            .d-inline-flex
+              a.text-dark.px-2(href='')
+                i.fab.fa-facebook-f
+              a.text-dark.px-2(href='')
+                i.fab.fa-twitter
+              a.text-dark.px-2(href='')
+                i.fab.fa-linkedin-in
+              a.text-dark.px-2(href='')
+                i.fab.fa-pinterest
+    .row.px-xl-5
+      .col
+        .bg-light.p-30
+          .nav.nav-tabs.mb-4
+            a.nav-item.nav-link.text-dark.active(data-toggle='tab' href='#tab-pane-1') Description
+            a.nav-item.nav-link.text-dark(data-toggle='tab' href='#tab-pane-2') Information
+            a.nav-item.nav-link.text-dark(data-toggle='tab' href='#tab-pane-3')=` Reviews (${reviews.length})`
+          .tab-content
+            #tab-pane-1.tab-pane.fade.show.active
+              h4.mb-3 Product Description
+              p=product.description
+              p
+                | Dolore magna est eirmod sanctus dolor, amet diam et eirmod et
+                | ipsum. Amet dolore tempor consetetur sed lorem dolor sit lorem
+                | tempor. Gubergren amet amet labore sadipscing clita clita diam
+                | clita. Sea amet et sed ipsum lorem elitr et, amet et labore
+                | voluptua sit rebum. Ea erat sed et diam takimata sed justo. Magna
+                | takimata justo et amet magna et.
+            #tab-pane-2.tab-pane.fade
+              h4.mb-3 Additional Information
+              p
+                | Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea.
+                | Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero
+                | diam ea vero et dolore rebum, dolor rebum eirmod consetetur
+                | invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum
+                | rebum diam. Dolore diam stet rebum sed tempor kasd eirmod.
+                | Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam
+                | consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
+                | nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit
+                | rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus
+                | eirmod takimata dolor ea invidunt.
+              .row
+                .col-md-6
+                  ul.list-group.list-group-flush
+                    li.list-group-item.px-0
+                      | Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                    li.list-group-item.px-0
+                      | Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                    li.list-group-item.px-0
+                      | Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                    li.list-group-item.px-0
+                      | Takimata ea clita labore amet ipsum erat justo voluptua.
+                      | Nonumy.
+                .col-md-6
+                  ul.list-group.list-group-flush
+                    li.list-group-item.px-0
+                      | Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                    li.list-group-item.px-0
+                      | Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                    li.list-group-item.px-0
+                      | Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                    li.list-group-item.px-0
+                      | Takimata ea clita labore amet ipsum erat justo voluptua.
+                      | Nonumy.
+            #tab-pane-3.tab-pane.fade
+              .row
+                .col-md-6
+                  h4.mb-4=` ${reviews.length} review for "${product.name}"`
+                  each review in reviews 
+                    .media.mb-4
+                      img.img-fluid.mr-3.mt-1(src=`/img/${review.userId.photo}` alt='Image' style='width: 45px')
+                      .media-body
+                        h6=review.userId.name
+                          small
+                            | - 
+                            i=`${review.createdAt.toISOString().slice(0, 10)}`
+                        .text-primary.mb-2
+                          i.fas.fa-star
+                          i.fas.fa-star
+                          i.fas.fa-star
+                          i.fas.fa-star-half-alt
+                          i.far.fa-star
+                        p=review.review 
+                .col-md-6
+                  h4.mb-4 Leave a review
+                  small
+                    | Your email address will not be published. Required fields are
+                    | marked *
+                  .d-flex.my-3
+                    p.mb-0.mr-2 Your Rating * :
+                    .text-primary
+                      i.far.fa-star
+                      i.far.fa-star
+                      i.far.fa-star
+                      i.far.fa-star
+                      i.far.fa-star
+                  form
+                    .form-group
+                      label(for='message') Your Review *
+                      textarea#message.form-control(cols='30' rows='5')
+                    .form-group
+                      label(for='name') Your Name *
+                      input#name.form-control(type='text')
+                    .form-group
+                      label(for='email') Your Email *
+                      input#email.form-control(type='email')
+                    .form-group.mb-0
+                      input.btn.btn-primary.px-3(type='submit' value='Leave Your Review')
+  // Products Start
+  .container-fluid.py-5
+    h2.section-title.position-relative.text-uppercase.mx-xl-5.mb-4
+      span.bg-secondary.pr-3 You May Also Like
+    .row.px-xl-5
+      .col
+        .owl-carousel.related-carousel
+          each good in recentProducts
+            .product-item.bg-light
+              .product-img.position-relative.overflow-hidden
+                img.img-fluid.w-100(src=`${good.image[0]}` alt='')
+                .product-action
+                  a.btn.btn-outline-dark.btn-square(href='')
+                    i.fa.fa-shopping-cart
+                  a.btn.btn-outline-dark.btn-square(href='')
+                    i.far.fa-heart
+                  a.btn.btn-outline-dark.btn-square(href='')
+                    i.fa.fa-sync-alt
+                  a.btn.btn-outline-dark.btn-square(href='')
+                    i.fa.fa-search
+              .text-center.py-4
+                a.h6.text-decoration-none.text-truncate(href='')=good.name 
+                .d-flex.align-items-center.justify-content-center.mt-2
+                  h5=`$${good.price}`
+                  h6.text-muted.ml-2
+                    del=`$${good.price*1.5}`
+                .d-flex.align-items-center.justify-content-center.mb-1
+                  small.fa.fa-star.text-primary.mr-1
+                  small.fa.fa-star.text-primary.mr-1
+                  small.fa.fa-star.text-primary.mr-1
+                  small.fa.fa-star.text-primary.mr-1
+                  small.fa.fa-star.text-primary.mr-1
+                  small=`${good.reviews.length}`
+  // Back to Top
+  a.btn.btn-primary.back-to-top(href='#')
+    i.fa.fa-angle-double-up
+  // JavaScript Libraries
+

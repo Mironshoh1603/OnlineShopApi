@@ -10,11 +10,11 @@ const {
 
 const options = {
   path: "productId",
-  select: "name",
+  select: "name ",
 };
 const options2 = {
   path: "userId",
-  select: "name",
+  select: "name photo -_id",
 };
 
 const getAllReviews = getAll(Review, options, options2);

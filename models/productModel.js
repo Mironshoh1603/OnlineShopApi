@@ -38,8 +38,16 @@ const productSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
+
+productSchema.virtual("reviews", {
+  ref: "reviews",
+  localField: "_id",
+  foreignField: "productId",
+});
 
 const Product = mongoose.model("products", productSchema);
 
