@@ -73,316 +73,50 @@ block content
     h2.section-title.position-relative.text-uppercase.mx-xl-5.mb-4
       span.bg-secondary.pr-3 Categories
     .row.px-xl-5.pb-3
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-1.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-2.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-3.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-4.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-4.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-3.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-2.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-1.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-2.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-1.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-4.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        a.text-decoration-none(href='')
-          .cat-item.img-zoom.d-flex.align-items-center.mb-4
-            .overflow-hidden(style='width: 100px; height: 100px;')
-              img.img-fluid(src='img/cat-3.jpg' alt='')
-            .flex-fill.pl-3
-              h6 Category Name
-              small.text-body 100 Products
+      each category in categories 
+        .col-lg-3.col-md-4.col-sm-6.pb-1
+          a.text-decoration-none(href='')
+            .cat-item.d-flex.align-items-center.mb-4
+              .overflow-hidden(style='width: 100px; height: 100px;')
+                img.img-fluid(src=`./${category.image}` alt='')
+              .flex-fill.pl-3
+                h6=category.name
+                small.text-body=`${category.products.length} Products`
+      
+
   // Categories End
   // Products Start
   .container-fluid.pt-5.pb-3
     h2.section-title.position-relative.text-uppercase.mx-xl-5.mb-4
       span.bg-secondary.pr-3 Featured Products
     .row.px-xl-5
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-1.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-2.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star-half-alt.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-3.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star-half-alt.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-4.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-5.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-6.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star-half-alt.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-7.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star-half-alt.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-8.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small (99)
+      each feature in featureProducts
+        .col-lg-3.col-md-4.col-sm-6.pb-1
+          .product-item.bg-light.mb-4
+            .product-img.position-relative.overflow-hidden
+              img.img-fluid.w-100(src=`./${feature.image[0]}` alt='')
+              .product-action
+                a.btn.btn-outline-dark.btn-square(href='')
+                  i.fa.fa-shopping-cart
+                a.btn.btn-outline-dark.btn-square(href='')
+                  i.far.fa-heart
+                a.btn.btn-outline-dark.btn-square(href='')
+                  i.fa.fa-sync-alt
+                a.btn.btn-outline-dark.btn-square(href='')
+                  i.fa.fa-search
+            .text-center.py-4
+              a.h6.text-decoration-none.text-truncate(href='')=feature.name
+              .d-flex.align-items-center.justify-content-center.mt-2
+                h5=feature.price
+                h6.text-muted.ml-2
+                  del=`${feature.price*1.5}`
+              .d-flex.align-items-center.justify-content-center.mb-1
+                small.fa.fa-star.text-primary.mr-1
+                small.fa.fa-star.text-primary.mr-1
+                small.fa.fa-star.text-primary.mr-1
+                small.far.fa-star.text-primary.mr-1
+                small.far.fa-star.text-primary.mr-1
+                small (99)
   // Products End
   // Offer Start
   .container-fluid.pt-5.pb-3
@@ -407,214 +141,33 @@ block content
     h2.section-title.position-relative.text-uppercase.mx-xl-5.mb-4
       span.bg-secondary.pr-3 Recent Products
     .row.px-xl-5
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-1.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-2.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star-half-alt.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-3.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star-half-alt.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-4.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-5.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-6.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star-half-alt.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-7.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star-half-alt.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small (99)
-      .col-lg-3.col-md-4.col-sm-6.pb-1
-        .product-item.bg-light.mb-4
-          .product-img.position-relative.overflow-hidden
-            img.img-fluid.w-100(src='img/product-8.jpg' alt='')
-            .product-action
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-shopping-cart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.far.fa-heart
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-sync-alt
-              a.btn.btn-outline-dark.btn-square(href='')
-                i.fa.fa-search
-          .text-center.py-4
-            a.h6.text-decoration-none.text-truncate(href='') Product Name Goes Here
-            .d-flex.align-items-center.justify-content-center.mt-2
-              h5 $123.00
-              h6.text-muted.ml-2
-                del $123.00
-            .d-flex.align-items-center.justify-content-center.mb-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.fa.fa-star.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small.far.fa-star.text-primary.mr-1
-              small (99)
+      each recent in recentProducts
+        .col-lg-3.col-md-4.col-sm-6.pb-1
+          .product-item.bg-light.mb-4
+            .product-img.position-relative.overflow-hidden
+              img.img-fluid.w-100(src=`./${recent.image[0]}` alt='')
+              .product-action
+                a.btn.btn-outline-dark.btn-square(href='')
+                  i.fa.fa-shopping-cart
+                a.btn.btn-outline-dark.btn-square(href='')
+                  i.far.fa-heart
+                a.btn.btn-outline-dark.btn-square(href='')
+                  i.fa.fa-sync-alt
+                a.btn.btn-outline-dark.btn-square(href='')
+                  i.fa.fa-search
+            .text-center.py-4
+              a.h6.text-decoration-none.text-truncate(href='')=recent.name
+              .d-flex.align-items-center.justify-content-center.mt-2
+                h5=recent.price
+                h6.text-muted.ml-2
+                  del=recent.price*1.5
+              .d-flex.align-items-center.justify-content-center.mb-1
+                small.fa.fa-star.text-primary.mr-1
+                small.fa.fa-star.text-primary.mr-1
+                small.fa.fa-star.text-primary.mr-1
+                small.far.fa-star.text-primary.mr-1
+                small.far.fa-star.text-primary.mr-1
+                small (99)
   // Products End
   // Vendor Start
   .container-fluid.py-5

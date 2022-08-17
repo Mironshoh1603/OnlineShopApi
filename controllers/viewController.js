@@ -1,19 +1,24 @@
 const User = require("../models/userModel");
 const Category = require("../models/categoryModel");
+const Product = require("../models/productModel");
 const AppError = require("../utility/appError");
 const catchErrorAsync = require("../utility/catchErrorAsync");
 
 const getAllTours = catchErrorAsync(async (req, res, next) => {
   // 1) Get all tours
-  const category = await Category.find();
+  const category = await Category.find().populate({ path: "products" });
 
   if (!category) {
     res.status(404).render("error", {});
   }
+  const featureProducts = await Product.find().limit(8);
+  const recentProducts = await Product.find().sort("createdAt").limit(8);
 
   res.status(200).render("index", {
     title: "All tours",
     categories: category,
+    recentProducts: recentProducts,
+    featureProducts: featureProducts,
   });
 });
 

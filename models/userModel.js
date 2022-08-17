@@ -5,61 +5,66 @@ const bcrypt = require("bcryptjs");
 
 // 1.name, 2.email, 3.photo, 4.password, 5.passwordConfirm
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Name kiritishingiz shart!"],
-    maxlength: 64,
-    minlength: 1,
-    trim: true,
-  },
-  email: {
-    type: String,
-    required: [true, "Email kiritishingiz shart!"],
-    unique: [true, "Siz oldin foydalanilgan email kiritdingiz"],
-    lowercase: true,
-    validate: [validator.isEmail, "Tugri email kiriting!"],
-  },
-  photo: {
-    type: String,
-  },
-  role: {
-    type: String,
-    enum: ["user", "guide", "team-lead", "admin"],
-    default: "user",
-  },
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "Name kiritishingiz shart!"],
+      maxlength: 64,
+      minlength: 1,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: [true, "Email kiritishingiz shart!"],
+      unique: [true, "Siz oldin foydalanilgan email kiritdingiz"],
+      lowercase: true,
+      validate: [validator.isEmail, "Tugri email kiriting!"],
+    },
+    photo: {
+      type: String,
+    },
+    role: {
+      type: String,
+      enum: ["user", "guide", "team-lead", "admin"],
+      default: "user",
+    },
 
-  password: {
-    type: String,
-    required: [true, "Siz passwordni kiritishingiz shart"],
-    validate: [
-      validator.isStrongPassword,
-      "Siz kuchliroq parolni kiritishingiz kerak",
-    ],
-    select: false,
-  },
-  passwordConfirm: {
-    type: String,
-    required: [true, "Siz passwordni kiritishingiz shart"],
-    validate: {
-      validator: function (val) {
-        return val === this.password;
+    password: {
+      type: String,
+      required: [true, "Siz passwordni kiritishingiz shart"],
+      validate: [
+        validator.isStrongPassword,
+        "Siz kuchliroq parolni kiritishingiz kerak",
+      ],
+      select: false,
+    },
+    passwordConfirm: {
+      type: String,
+      required: [true, "Siz passwordni kiritishingiz shart"],
+      validate: {
+        validator: function (val) {
+          return val === this.password;
+        },
+        message: "Siz bir xil password kiriting",
       },
-      message: "Siz bir xil password kiriting",
+    },
+    passwordChangedDate: {
+      type: Date,
+      default: null,
+    },
+    resetTokenHash: String,
+    resetTokenVaqti: Date,
+    active: {
+      type: Boolean,
+      default: true,
+      select: false,
     },
   },
-  passwordChangedDate: {
-    type: Date,
-    default: null,
-  },
-  resetTokenHash: String,
-  resetTokenVaqti: Date,
-  active: {
-    type: Boolean,
-    default: true,
-    select: false,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
