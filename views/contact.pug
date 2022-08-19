@@ -1,0 +1,49 @@
+extends base
+
+block content
+  // Breadcrumb Start
+  .container-fluid
+    .row.px-xl-5
+      .col-12
+        nav.breadcrumb.bg-light.mb-30
+          a.breadcrumb-item.text-dark(href='/') Home
+          span.breadcrumb-item.active Contact
+  // Breadcrumb End
+  // Contact Start
+  .container-fluid
+    h2.section-title.position-relative.text-uppercase.mx-xl-5.mb-4
+      span.bg-secondary.pr-3 Contact Us
+    .row.px-xl-5
+      .col-lg-7.mb-5
+        .contact-form.bg-light.p-30
+          #success
+          form#contactForm(name='sentMessage' novalidate='novalidate')
+            .control-group
+              input#name.form-control(type='text' placeholder='Your Name' required='required' data-validation-required-message='Please enter your name')
+              p.help-block.text-danger
+            .control-group
+              input#email.form-control(type='email' placeholder='Your Email' required='required' data-validation-required-message='Please enter your email')
+              p.help-block.text-danger
+            .control-group
+              input#subject.form-control(type='text' placeholder='Subject' required='required' data-validation-required-message='Please enter a subject')
+              p.help-block.text-danger
+            .control-group
+              textarea#message.form-control(rows='8' placeholder='Message' required='required' data-validation-required-message='Please enter your message')
+              p.help-block.text-danger
+            div
+              button#sendMessageButton.btn.btn-primary.py-2.px-4(type='submit')
+                | Send Message
+      .col-lg-5.mb-5
+        .bg-light.p-30.mb-30
+          iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.4086721390013!2d69.21197031505646!3d41.32172597927025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8bed1066cea5%3A0xb006413a190f20c7!2sKo'kcha%20Darvoza%20St!5e0!3m2!1sen!2sbd!4v1660915410266!5m2!1sen!2sbd" width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade')
+        .bg-light.p-30.mb-3
+          p.mb-2
+            i.fa.fa-map-marker-alt.text-primary.mr-3
+            | 8A "Ko'kcha darvoza " Street , Tashkent
+            |           , Uzbekistan
+          p.mb-2
+            i.fa.fa-envelope.text-primary.mr-3
+            | mironshohasadov2003@gmail.com
+          p.mb-2
+            i.fa.fa-phone-alt.text-primary.mr-3
+            | +998 99 688 7953

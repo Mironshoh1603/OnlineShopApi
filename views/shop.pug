@@ -1,0 +1,177 @@
+extends base
+
+block content
+  // Breadcrumb Start
+  .container-fluid
+    .row.px-xl-5
+      .col-12
+        nav.breadcrumb.bg-light.mb-30
+          a.breadcrumb-item.text-dark(href='/') Home
+          a.breadcrumb-item.text-dark(href='#') Shop
+          span.breadcrumb-item.active Shop List
+  // Breadcrumb End
+  // Shop Start
+  .container-fluid
+    .row.px-xl-5
+      // Shop Sidebar Start
+      .col-lg-3.col-md-4
+        // Price Start
+        h5.section-title.position-relative.text-uppercase.mb-3
+          span.bg-secondary.pr-3 Filter by price
+        .bg-light.p-4.mb-30
+          form
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#price-all.custom-control-input(type='checkbox' checked='')
+              label.custom-control-label(for='price-all') All Price
+              span.badge.border.font-weight-normal 1000
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#price-1.custom-control-input(type='checkbox')
+              label.custom-control-label(for='price-1') $0 - $100
+              span.badge.border.font-weight-normal 150
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#price-2.custom-control-input(type='checkbox')
+              label.custom-control-label(for='price-2') $100 - $200
+              span.badge.border.font-weight-normal 295
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#price-3.custom-control-input(type='checkbox')
+              label.custom-control-label(for='price-3') $200 - $300
+              span.badge.border.font-weight-normal 246
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#price-4.custom-control-input(type='checkbox')
+              label.custom-control-label(for='price-4') $300 - $400
+              span.badge.border.font-weight-normal 145
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between
+              input#price-5.custom-control-input(type='checkbox')
+              label.custom-control-label(for='price-5') $400 - $500
+              span.badge.border.font-weight-normal 168
+        // Price End
+        // Color Start
+        h5.section-title.position-relative.text-uppercase.mb-3
+          span.bg-secondary.pr-3 Filter by color
+        .bg-light.p-4.mb-30
+          form
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#color-all.custom-control-input(type='checkbox' checked='')
+              label.custom-control-label(for='price-all') All Color
+              span.badge.border.font-weight-normal 1000
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#color-1.custom-control-input(type='checkbox')
+              label.custom-control-label(for='color-1') Black
+              span.badge.border.font-weight-normal 150
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#color-2.custom-control-input(type='checkbox')
+              label.custom-control-label(for='color-2') White
+              span.badge.border.font-weight-normal 295
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#color-3.custom-control-input(type='checkbox')
+              label.custom-control-label(for='color-3') Red
+              span.badge.border.font-weight-normal 246
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#color-4.custom-control-input(type='checkbox')
+              label.custom-control-label(for='color-4') Blue
+              span.badge.border.font-weight-normal 145
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between
+              input#color-5.custom-control-input(type='checkbox')
+              label.custom-control-label(for='color-5') Green
+              span.badge.border.font-weight-normal 168
+        // Color End
+        // Size Start
+        h5.section-title.position-relative.text-uppercase.mb-3
+          span.bg-secondary.pr-3 Filter by size
+        .bg-light.p-4.mb-30
+          form
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#size-all.custom-control-input(type='checkbox' checked='')
+              label.custom-control-label(for='size-all') All Size
+              span.badge.border.font-weight-normal 1000
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#size-1.custom-control-input(type='checkbox')
+              label.custom-control-label(for='size-1') XS
+              span.badge.border.font-weight-normal 150
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#size-2.custom-control-input(type='checkbox')
+              label.custom-control-label(for='size-2') S
+              span.badge.border.font-weight-normal 295
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#size-3.custom-control-input(type='checkbox')
+              label.custom-control-label(for='size-3') M
+              span.badge.border.font-weight-normal 246
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between.mb-3
+              input#size-4.custom-control-input(type='checkbox')
+              label.custom-control-label(for='size-4') L
+              span.badge.border.font-weight-normal 145
+            .custom-control.custom-checkbox.d-flex.align-items-center.justify-content-between
+              input#size-5.custom-control-input(type='checkbox')
+              label.custom-control-label(for='size-5') XL
+              span.badge.border.font-weight-normal 168
+        // Size End
+      // Shop Sidebar End
+      // Shop Product Start
+      .col-lg-9.col-md-8
+        .row.pb-3
+          .col-12.pb-1
+            .d-flex.align-items-center.justify-content-between.mb-4
+              div
+                button.btn.btn-sm.btn-light
+                  i.fa.fa-th-large
+                button.btn.btn-sm.btn-light.ml-2
+                  i.fa.fa-bars
+              .ml-2
+                .btn-group
+                  button.btn.btn-sm.btn-light.dropdown-toggle(type='button' data-toggle='dropdown') Sorting
+                  .dropdown-menu.dropdown-menu-right
+                    a.dropdown-item(href='#') Latest
+                    a.dropdown-item(href='#') Popularity
+                    a.dropdown-item(href='#') Best Rating
+                .btn-group.ml-2
+                  button.btn.btn-sm.btn-light.dropdown-toggle(type='button' data-toggle='dropdown') Showing
+                  .dropdown-menu.dropdown-menu-right
+                    a.dropdown-item(href='#') 10
+                    a.dropdown-item(href='#') 20
+                    a.dropdown-item(href='#') 30
+          .col-12.row  
+          each recent in recentProducts 
+            .col-lg-4.col-md-6.col-sm-6.pb-1
+              .product-item.bg-light.mb-4
+                .product-img.position-relative.overflow-hidden
+                  img.img-fluid.w-100(src=`${recent.image[0]}` alt='')
+                  .product-action
+                    a.btn.btn-outline-dark.btn-square(href='')
+                      i.fa.fa-shopping-cart
+                    a.btn.btn-outline-dark.btn-square(href='')
+                      i.far.fa-heart
+                    a.btn.btn-outline-dark.btn-square(href='')
+                      i.fa.fa-sync-alt
+                    a.btn.btn-outline-dark.btn-square(href='')
+                      i.fa.fa-search
+                .text-center.py-4
+                  a.h6.text-decoration-none.text-truncate(href=`/product/${recent.id}`)=recent.name
+                  .d-flex.align-items-center.justify-content-center.mt-2
+                    h5=`$${recent.price}`
+                    h6.text-muted.ml-2
+                      del=`$${recent.price*1.5}`
+                  .d-flex.align-items-center.justify-content-center.mb-1
+                    small.fa.fa-star.text-primary.mr-1
+                    small.fa.fa-star.text-primary.mr-1
+                    small.fa.fa-star.text-primary.mr-1
+                    small.fa.fa-star.text-primary.mr-1
+                    small.fa.fa-star.text-primary.mr-1
+                    small=`${recent.reviews.length}`
+          .col-12
+            nav
+              ul.pagination.justify-content-center
+                li.page-item.disabled
+                  a.page-link(href='#') Previous
+                li.page-item.active
+                  a.page-link(href='#') 1
+                li.page-item
+                  a.page-link(href='#') 2
+                li.page-item
+                  a.page-link(href='#') 3
+                li.page-item
+                  a.page-link(href='#') Next
+      // Shop Product End
+  // Shop End
+  // Back to Top
+  a.btn.btn-primary.back-to-top(href='#')
+    i.fa.fa-angle-double-up

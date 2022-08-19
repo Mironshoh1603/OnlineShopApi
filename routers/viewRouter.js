@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.get("/", viewController.getAllTours);
 router.get("/product/:id", viewController.getTourDatails);
+router.get("/shop", viewController.getShop);
+router.get("/contact", viewController.getContact);
 // router.get("/tour/:id", viewController.getOneTour);
 // router.get("/login", viewController.login);
 // router.get("/me", authController.protect, viewController.account);

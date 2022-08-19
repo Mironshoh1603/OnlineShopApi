@@ -48,51 +48,24 @@ const getTourDatails = catchErrorAsync(async (req, res) => {
     reviews: reviews,
   });
 });
-// const getOneTour = catchErrorAsync(async (req, res) => {
-//   const slug = req.params.id;
+const getShop = catchErrorAsync(async (req, res) => {
+  const product = await Product.find().populate({ path: "reviews" });
+  const recentProducts = await Product.find()
+    .populate({ path: "reviews" })
+    .sort("createdAt")
+    .limit(9);
 
-//   const tour = await Tour.findOne({ _id: req.params.id }).populate({
-//     path: "reviews",
-//     select: "review rating user",
-//   });
-//   console.log(tour);
-//   if (!tour) {
-//     return next(new AppError("This page not found", 404));
-//   }
+  res.status(200).render("shop", {
+    title: "Shop",
+    categories: await catagoryFunc(),
+    recentProducts: recentProducts,
+    product: product,
+  });
+});
+const getContact = catchErrorAsync(async (req, res, next) => {
+  res
+    .status(200)
+    .render("contact", { title: "Shop", categories: await catagoryFunc() });
+});
 
-//   console.log(tour);
-
-//   res.status(200).render("tour", {
-//     tour: tour,
-//   });
-// });
-
-// const login = catchErrorAsync(async (req, res, next) => {
-//   res.status(200).render("login", {});
-// });
-
-// const account = catchErrorAsync(async (req, res, next) => {
-//   res.status(200).render("account", {});
-// });
-
-// const submitData = catchErrorAsync(async (req, res, next) => {
-//   console.log(req.body.name);
-//   const updateData = await User.findByIdAndUpdate(
-//     req.user.id,
-//     {
-//       name: req.body.name,
-//       email: req.body.email,
-//     },
-//     {
-//       new: true,
-//       runValidators: true,
-//     }
-//   );
-
-//   res.status(200).render("account", {
-//     msg: "Your data has been updated",
-//     user: updateData,
-//   });
-// });
-
-module.exports = { getAllTours, getTourDatails };
+module.exports = { getAllTours, getShop, getTourDatails, getContact };
